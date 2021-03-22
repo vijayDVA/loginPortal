@@ -18,16 +18,18 @@ public class getemail2 {
 		return uname;
 	}
 	public void setUname(String uname) {
-		this.uname = uname;
+		getemail2.uname = uname;
 	}
 	public String getPasswd() {
 		return passwd;
 	}
 	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+		getemail2.passwd = passwd;
 	}
 	
 
+	
+	
 	public String getemail() throws SQLException
 	{
 		String gmail;
@@ -38,6 +40,13 @@ public class getemail2 {
 		
 		return gmail;
 	}
+	public void getemail1(RegisterDao loginDao2) {
+
+		this.loginDao = loginDao2;
+		
+	}
+	
+
 		
 		
 }

@@ -14,11 +14,17 @@ import java.sql.SQLException;
 
 import com.login.web.getemail2;
 
-public class TestgetEmail {
+public class TestgetEmail extends getemail2 {
 
 	RegisterDao loginDao= Mockito.mock(RegisterDao.class);
+	getemail2 gete =new getemail2();
 	Member loginBean = new Member();
-	getemail2 gete = new getemail2();
+	
+	@Before
+	public void setup()
+	{
+		gete.getemail1(loginDao);
+	}
 	
 	
 	@Test

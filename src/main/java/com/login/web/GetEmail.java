@@ -37,8 +37,6 @@ public class GetEmail extends HttpServlet {
 
 		
 		String gmail;
-		
-		
 		try {
 			
 			getemail2 gete = new getemail2();
