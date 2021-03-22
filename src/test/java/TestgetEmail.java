@@ -25,17 +25,8 @@ public class TestgetEmail {
 	public void testGmail() throws SQLException
 	{
 		when(loginDao.GetEmail(loginBean)).thenReturn("dva");
-		assertEquals("dva",check());
+		assertEquals("dva",gete.getemail());
 	}
 	
-	public String check() throws SQLException
-	{
-		String gmail;
-		loginBean.setUname("dva");
-		loginBean.setPassword("dva");
-		
-		gmail = loginDao.GetEmail(loginBean);
-		
-		return gmail;
-	}
+	
 }
