@@ -1,7 +1,6 @@
 package com.login.web;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,18 +43,21 @@ public class login extends HttpServlet {
 		
 		String username = request.getParameter("uname");
 		String password = request.getParameter("password");
+
+		
 		Member loginBean = new Member();
 		
 		loginBean.setUname(username);
 		loginBean.setPassword(password);
+
+		
 		
 		if (loginDao.validate(loginBean))
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("username",username);
 			
-			response.sendRedirect("loginDone.jsp");
-			
+			response.sendRedirect("loginDone.jsp");	
 		}
 		else 
 		{

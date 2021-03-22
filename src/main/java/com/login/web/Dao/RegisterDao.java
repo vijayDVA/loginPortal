@@ -1,13 +1,17 @@
 package com.login.web.Dao;
 
 import java.sql.Connection;
+
+
+
+
 import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.login.web.model.Member;
+import com.login.web.getemail2;
 
 
 public class RegisterDao {
@@ -72,6 +76,8 @@ public class RegisterDao {
 		Connection con = getConnection();
 		
 		String sql = "select * from member where uname =? and password =?";
+
+		
 		PreparedStatement ps;
 		try {
 		ps = con.prepareStatement(sql);
@@ -79,6 +85,12 @@ public class RegisterDao {
 		ps.setString(2, member.getPassword());
 		ResultSet rs = ps.executeQuery();
 		status = rs.next();
+		
+		getemail2 gete = new getemail2();
+		
+		gete.setUname(member.getUname());
+		gete.setPasswd(member.getPassword());
+	
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -97,5 +109,28 @@ public class RegisterDao {
 		Statement stmt = con.createStatement();
 		stmt.executeUpdate(sql);		
 		
+	}
+	public String GetEmail(Member member) throws SQLException
+	{
+		loadDriver(dbDriver);
+		Connection con = getConnection();
+		String gmail = null;
+		String sql = "select * from member where uname =? and password =?";
+		PreparedStatement ps;
+		try {
+		ps = con.prepareStatement(sql);
+		ps.setString(1, member.getUname());
+		ps.setString(2, member.getPassword());
+		ResultSet rs = ps.executeQuery();
+		boolean status = false;
+		status = rs.next();
+		gmail=rs.getString(3);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return gmail;
 	}
 }

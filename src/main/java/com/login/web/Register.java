@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
 		String uname = request.getParameter("uname");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-	
+		
 		
 		Member member = new Member(uname, password, email);
 		

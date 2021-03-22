@@ -4,21 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>logout</servlet-name>
-  	<display-name>logout</display-name>
-  	<description></description>
-  	<servlet-class>com.login.web.logout</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>logout</servlet-name>
-  	<url-pattern>/logout</url-pattern>
-  </servlet-mapping>
   
     
-
-    <welcome-file-list>
-    	<welcome-file>memberRegistration.jsp</welcome-file>
-  	</welcome-file-list>
   	
 </web-app>

@@ -15,8 +15,13 @@ if(session.getAttribute("username")==null)
 {
 	response.sendRedirect("login.jsp");
 }
+
 %>
 <h1>Login successfully done</h1>
+<form action="GetEmail" method="get">
+	<h1>${gmail}</h1>
+	<input type="submit" value="getEmail">
+</form>
 
 <form action="logout">
 	<input type="submit" value="logout">
