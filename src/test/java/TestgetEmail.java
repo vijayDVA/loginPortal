@@ -12,18 +12,17 @@ import com.login.web.getemail2;
 
 public class TestgetEmail {
 
+	RegisterDao loginDao= mock(RegisterDao.class);
+	getemail2 gete =new getemail2();
+	
 	@Test
 	public void testGmail() throws SQLException
 	{
-	getemail2 gete =new getemail2();
-	RegisterDao loginDao= mock(RegisterDao.class);
-	
 	
 	when(loginDao.GetEmail(any(Member.class))).thenReturn("dva");
 	gete.loginDao = loginDao;
-
-	String stg= gete.getemail();
 	
+	String stg= gete.getemail();
 	assertEquals("dva",stg);
 	}
 	
