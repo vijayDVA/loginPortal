@@ -11,8 +11,8 @@ public class getemail2 {
 	static String uname;
 	static String passwd;
 	
-	RegisterDao loginDao = new RegisterDao();
-	Member loginBean = new Member();
+	public RegisterDao loginDao = new RegisterDao();
+	
 	
 	public String getUname() {
 		return uname;
@@ -28,14 +28,16 @@ public class getemail2 {
 	}
 	
 
-	
+	static String gmail;
+	Member loginBean = new Member();
 	
 	public String getemail() throws SQLException
 	{
-		String gmail;
-		loginBean.setUname("dva");
-		loginBean.setPassword("dva");
 		
+		
+		loginBean.setUname(uname);
+		loginBean.setPassword(passwd);
+
 		gmail = loginDao.GetEmail(loginBean);
 		
 		return gmail;
