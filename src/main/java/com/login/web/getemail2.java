@@ -33,8 +33,8 @@ public class getemail2 {
 	public String getemail() throws SQLException
 	{
 		String gmail;
-		loginBean.setUname(uname);
-		loginBean.setPassword(passwd);
+		loginBean.setUname("dva");
+		loginBean.setPassword("dva");
 		
 		gmail = loginDao.GetEmail(loginBean);
 		
