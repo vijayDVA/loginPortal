@@ -81,7 +81,7 @@ public class RegisterDao {
 		ps.setString(2, member.getPassword());
 		ResultSet rs = ps.executeQuery();
 		status = rs.next();
-		
+		 
 		getemail2 gete = new getemail2();
 		
 		gete.setUname(member.getUname());
@@ -97,7 +97,7 @@ public class RegisterDao {
 
 	public void delete() throws SQLException
 	{
-		loadDriver(dbDriver);
+		loadDriver(dbDriver); 
 		Connection con = getConnection();
 		
 		String sql = "DELETE FROM member WHERE uname='rajini'";
@@ -107,9 +107,17 @@ public class RegisterDao {
 		
 	}
 	public String GetEmail(Member member) throws SQLException
-	{
-		loadDriver(dbDriver);
-		Connection con = getConnection();
+
+	{ 
+		//loadDriver(dbDriver);
+		try {
+			Class.forName(dbDriver);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//Connection con = getConnection();
+		Connection con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
 		String gmail = null;
 		String sql = "select * from member where uname =? and password =?";
 		PreparedStatement ps;
@@ -129,4 +137,13 @@ public class RegisterDao {
 		
 		return gmail;
 	}
+
+	  public void add(int add1, int add2)
+	  {
+	        // no-op
+
+		 
+	   }
+	
+
 }

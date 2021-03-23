@@ -33,20 +33,24 @@ public class getemail2 {
 	
 	public String getemail() throws SQLException
 	{
+		 
+		 
+		loginBean.setUname("dva"); 
+		loginBean.setPassword("dva");
 		
 		
-		loginBean.setUname(uname);
-		loginBean.setPassword(passwd);
-
 		gmail = loginDao.GetEmail(loginBean);
-		
+	
+		System.out.print(gmail);
 		return gmail;
 	}
-	public void getemail1(RegisterDao loginDao2) {
+	public void getemail1(RegisterDao loginDao2){
 
 		this.loginDao = loginDao2;
-		
+	
 	}
+	
+
 	
 
 		
